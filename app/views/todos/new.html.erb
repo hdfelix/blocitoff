@@ -1,3 +1,7 @@
+<% if @todo.errors %>
+	<p><%= @todo.errors.messages.first %></p>
+<% end %>
+
 <%= form_for @todo do |f| %>
 	<%= f.text_field :description, placeholder: 'Description' %>
 	<%= f.submit 'Save' %>
