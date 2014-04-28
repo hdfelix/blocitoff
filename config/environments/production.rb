@@ -77,4 +77,9 @@ Blocitoff::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+#Devise gem settings
+	config.action_mailer.default_url_options = { host: 'hdfelix-blocitoff.herokuapp.com' }
+	config.action_mailer.delivery_method = :smtp
+	config.action_mailer.perform_deliveries = true
 end

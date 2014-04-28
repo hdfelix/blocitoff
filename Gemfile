@@ -15,6 +15,7 @@ end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
+gem 'bootstrap-sass', '~> 3.1.1'
 
 # BDD & TDD
 group :development, :test do
@@ -27,7 +28,7 @@ gem 'figaro'
 
 group :test do
 	# generate fake test data
-	gem 'faker', '~>1.1.2'
+	gem 'faker', '~>1.3.0'
 
 	#BDD
 	gem 'capybara', '~> 2.2.1'

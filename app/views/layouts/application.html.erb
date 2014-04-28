@@ -8,9 +8,25 @@
 </head>
 <body>
 
-<p><%=flash[:notice] if flash[:notice] %>
-<p><%=flash[:alert] if flash[:alert] %>
-<%= yield %>
+<div class="container">
+	<ul class="nav nav-tabs">
+		<li><%= link_to "Blocitoff", welcome_index_path %></li>
+		<li><%= link_to "Todos", todos_path %></li>
+
+		<div class="pull-right user-info">
+			<% if current_user %>
+				Hello <%= current_user.name %>! <%=link_to "sign out", destroy_user_session_path, method: :delete %>
+			<% else %>
+				<%= link_to "Sign in", new_user_session_path %> or
+				<%= link_to "Sign up", new_user_registration_path %>
+			<% end %>
+		</div>
+	</ul>
+	
+		<p><%=flash[:notice] if flash[:notice] %>
+		<p><%=flash[:alert] if flash[:alert] %>
+		<%= yield %>
+	</div>
 
 </body>
 </html>

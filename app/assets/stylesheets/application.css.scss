@@ -1,3 +1,4 @@
+@import "bootstrap";
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -11,3 +12,16 @@
  *= require_self
  *= require_tree .
  */
+
+.user-info {
+	margin-top: 9px;
+}
+
+.nav {
+	margin-top: 5px;
+}
+
+.intro {
+
+}
+

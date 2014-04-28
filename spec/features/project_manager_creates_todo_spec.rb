@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 feature 'Project Manager creates TODO' do
+	scenario 'Can view the TODO index' do
+		visit todos_path
+	end
+
 	scenario 'Successfully' do
 		visit new_todo_path
 		expect{
