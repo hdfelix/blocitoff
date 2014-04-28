@@ -9,6 +9,7 @@
 <body>
 
 <p><%=flash[:notice] if flash[:notice] %>
+<p><%=flash[:alert] if flash[:alert] %>
 <%= yield %>
 
 </body>
