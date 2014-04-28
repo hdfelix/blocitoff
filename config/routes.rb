@@ -1,5 +1,6 @@
 Blocitoff::Application.routes.draw do
+  get "welcome/index"
 	resources :todos
 
-	root to: 'todos#new'
+	root to: 'welcome#index'
 end
