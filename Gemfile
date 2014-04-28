@@ -22,6 +22,9 @@ group :development, :test do
 	gem 'factory_girl_rails', '~> 4.4.0'
 end
 
+#Handle sensitive data
+gem 'figaro'
+
 group :test do
 	# generate fake test data
 	gem 'faker', '~>1.1.2'
