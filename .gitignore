@@ -15,6 +15,9 @@
 /log/*.log
 /tmp
 
+#Ignore Vim swap & save files
+*.swp
+*.un~
 #Ignore application configuration
 /config/application.yml
 

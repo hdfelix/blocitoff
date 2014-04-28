@@ -15,7 +15,6 @@ feature 'Project Manager creates TODO' do
 		visit new_todo_path
 		expect{click_button 'Save'}.to change(Todo, :count).by (0)
 		expect(page).to have_content("can't be blank")
-		#expect(page).to have_content('Could not save the TODO.')	
 	end
 end
 
