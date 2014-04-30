@@ -26,7 +26,7 @@ end
 #Handle sensitive data
 gem 'figaro'
 
-group :test do
+group :development, :test do
 	# generate fake test data
 	gem 'faker', '~>1.3.0'
 

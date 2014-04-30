@@ -25,7 +25,7 @@ RSpec.configure do |config|
   # config.mock_with :rr
 
 	#Include Macros
-	#config.include(LoginMacros)
+	config.include(LoginMacros)
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -45,4 +45,19 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+	#Set config.use_transactional_fixtures to false
+	config.use_transactional_fixtures = false
+
+	config.before(:suite) do
+		DatabaseCleaner.strategy = :truncation
+	end
+
+	config.before(:each) do
+		DatabaseCleaner.start
+	end
+
+	config.after(:each) do
+		DatabaseCleaner.clean
+	end
 end
