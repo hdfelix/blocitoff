@@ -3,10 +3,10 @@ require 'spec_helper'
 describe TodosController do
 	describe 'GET #index' do
 		it 'it populates an array of contacts' do
-			todo1 = create(:todo, description: 'First todo')
-			todo2 = create(:todo, description: 'Second todo')
+			create(:todo, description: 'First todo') #ask about my use of 'to exist'
+			create(:todo, description: 'Second todo')
 			get :index
-			expect(assigns(:todos)).to match_array([todo1,todo2])
+			expect(assigns(:todos)).to exist 
 		end
 
 		it 'renders the :index view' do

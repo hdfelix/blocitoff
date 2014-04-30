@@ -21,8 +21,10 @@
 			<% @todos.each do |todo| %>
 				<tr>
 					<td><%= link_to todo.description, todo %></td>
-					<td>[Days left]</td>
-					<td>[Not completed]</td>
+					<td><%= todo.days_left %></td>
+					<td>
+						<input type="checkbox" />
+					</td>
 				</tr>
 			<% end %>
 			</tbody>
