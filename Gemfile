@@ -17,6 +17,9 @@ end
 gem 'sass-rails', '~> 4.0.2'
 gem 'bootstrap-sass', '~> 3.1.1'
 
+#Running Cron jobs from your project
+gem 'whenever', :require => false
+
 # BDD & TDD
 group :development, :test do
 	gem 'rspec-rails', '~> 2.14.0'
