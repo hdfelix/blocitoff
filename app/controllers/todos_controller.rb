@@ -2,6 +2,7 @@ class TodosController < ApplicationController
 respond_to :html, :js
 	def index
 		@todos = Todo.all
+		@todo = Todo.new
 	end
 
 	def new

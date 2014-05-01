@@ -25,3 +25,20 @@
 		</div>
 	</div>
 </div>
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<% if @todo.errors %>
+			<p><%= @todo.errors.messages.first %></p>
+		<% end %>
+
+		<%= form_for @todo, html: {class: 'form-inline'} do |f| %>
+			<div class="form-group">
+				<%= f.label :description, class: 'sr-only' %>
+				<%= f.text_field :description, class: 'form-control', placeholder: 'Description' %><br />
+			</div>
+			<div class="form-group">
+				<%= f.submit 'Save', class: "btn btn-success" %>
+			</div>
+		<% end %>
+	</div>
+</div>
