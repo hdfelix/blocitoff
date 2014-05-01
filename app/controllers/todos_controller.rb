@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-
+respond_to :html, :js
 	def index
 		@todos = Todo.all
 	end
@@ -29,10 +29,12 @@ class TodosController < ApplicationController
 
 		if @todo.destroy
 			flash[:notice] = "The todo #{desc} was deleted successfully."
-			redirect_to todos_url
 		else
 			flash[:error] = "There was an error deleting the Todo item"
-			render todos_url
+		end
+
+		respond_with(@todo) do |f|
+			f.html { redirect_to todos_path }
 		end
 	end
 

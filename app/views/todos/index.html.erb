@@ -17,16 +17,8 @@
 				<tr>
 					<th colspan='3'><%= link_to	'Create new todo', new_todo_path %></th>
 				</tr>
-			<tbody>
-			<% @todos.each do |todo| %>
-				<tr>
-					<td><%= link_to todo.description, todo %></td>
-					<td><%= todo.days_left %></td>
-					<td>
-						<input type="checkbox" />
-					</td>
-				</tr>
-			<% end %>
+				<tbody>
+					<%= render partial: 'todo', collection: @todos %>
 			</tbody>
 		</table>
 	</div>

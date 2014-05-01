@@ -3,6 +3,8 @@ class Todo < ActiveRecord::Base
 
 	validates :description, presence: true
 
+	default_scope { order('created_at ASC') }
+
 	def expired?
 		self.created_at <= 7.days.ago
 	end
