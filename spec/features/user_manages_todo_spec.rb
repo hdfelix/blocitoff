@@ -35,6 +35,8 @@ feature 'User creates Todo item' do
 			fill_in 'Description', with: 'Meet up with the team'
 			click_button 'Save'
 		}.to change(Todo, :count).by (1)
+		save_and_open_page
+
 		expect(page).to have_content('Meet up with the team')
 	end
 	scenario 'sees \'SUCCESS\' message when saved' do
@@ -52,7 +54,7 @@ feature 'User creates Todo item' do
 end
 
 #feature 'User edits a Todo item' do
-#	eodo = Todo.create(description: 'Test my app')
+#	todo = Todo.create(description: 'Test my app')
 #	
 #	scenario 'Successfully' do
 #		visit todos_path
