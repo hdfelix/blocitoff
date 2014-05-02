@@ -66,6 +66,9 @@ gem 'jbuilder', '~> 1.2'
 #Authentication
 gem 'devise'
 
+#Authorization
+gem 'pundit'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
