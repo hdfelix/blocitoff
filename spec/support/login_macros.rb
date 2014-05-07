@@ -11,5 +11,9 @@ module LoginMacros
 		fill_in 'Password', with: user.password
 		click_button 'Sign in'
 	end
+
+	def log_in(user)
+		post login_path, login: user.email, password: 'secret_password'
+	end
 end
 

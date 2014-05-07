@@ -18,7 +18,8 @@ respond_to :html, :js
 	end
 
 	def create
-		@todo = Todo.new(todo_params)
+		#@todo = Todo.new(todo_params)
+		@todo = current_user.todos.build(todo_params)
 		authorize @todo
 
 		if @todo.save

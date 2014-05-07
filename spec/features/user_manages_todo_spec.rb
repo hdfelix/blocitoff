@@ -2,6 +2,8 @@ require 'spec_helper'
 
 feature 'User can manage Todo items' do
 	@todo = Todo.create(description: 'Test my app')
+	user = FactoryGirl.create(:user)
+	log_in user
 
 	scenario 'by accessing the Todo index' do
 		visit todos_path
@@ -17,25 +19,24 @@ feature 'User can manage Todo items' do
 	end
 	
 	scenario 'Can view a single Todo item' do	
-		visit todos_path
+		visit 'todos#index'
 		expect(page).to have_content('Test my app')
 	end
 
-	#scenario 'Can view days left on a todo item' do
-		#expect(page).to have_content('days')	
-	#end
+	scenario 'Can view days left on a todo item' do
+	 expect(page).to have_content('days')	
+	end
 end
 
 feature 'User creates Todo item' do
 
 	scenario 'Successfully' do
-		visit todos_path
-		click_link 'Create new todo'
+		click_link 'todos'
+		save_and_open_page
 		expect{
-			fill_in 'Description', with: 'Meet up with the team'
+			fill_in 'todo_description', with: 'Meet up with the team'
 			click_button 'Save'
 		}.to change(Todo, :count).by (1)
-		save_and_open_page
 
 		expect(page).to have_content('Meet up with the team')
 	end

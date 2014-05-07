@@ -1,8 +1,11 @@
 <%= content_tag :tr, id: "todo-#{todo.id}" do %>
-	<td><%= link_to todo.description, todo %></td>
-	<td><%= todo.days_left %></td>
-	<td>
-		<%= link_to "Delete", todo, method: :delete, confirm: 'Are you sure you want to delete this item?', remote: true %>
-	</td>
+	<% if policy(todo).show? && current_user.id == todo.user_id %>
+		<td><%= link_to todo.description, todo %></td>
+		<td><%= todo.days_left %></td>
+		<td>
+			<%= link_to '', todo, id: 'todo-delete', method: :delete, class: 'glyphicon glyphicon-trash', remote: true %>
+		</td>
+	<% end %>
 </tr>
 <% end %>
+

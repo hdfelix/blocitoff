@@ -1,10 +1,10 @@
 desc "Delete items that are older than 7 days"
 task delete_items: :environment do
-	#For Testing
-	#Todo.create(description: "Rake created", created_at: 8.days.ago)
-	#Todo.create(description: "Rake created", created_at: 8.days.ago)
-	#Todo.create(description: "Rake created", created_at: 8.days.ago)
-	#Todo.create(description: "Rake created", created_at: 8.days.ago)
+	#For Testing 2 of these should delete
+#	Todo.create(description: "Rake created", created_at: 5.days.ago)
+#	Todo.create(description: "Rake created", created_at: 6.days.ago)
+#	Todo.create(description: "Rake created", created_at: 9.days.ago)
+#	Todo.create(description: "Rake created", created_at: 10.days.ago)
 
 	print "\nVerifying #{Todo.all.count} tasks: "
   count = 0

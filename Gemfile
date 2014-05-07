@@ -15,7 +15,6 @@ end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
-gem 'bootstrap-sass', '~> 3.1.1'
 
 #Running Cron jobs from your project
 gem 'whenever', :require => false
@@ -56,6 +55,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'bootstrap-sass', '~> 3.1.1'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
