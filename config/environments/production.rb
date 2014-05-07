@@ -80,6 +80,6 @@ Blocitoff::Application.configure do
 
 #Devise gem settings
 	config.action_mailer.default_url_options = { host: 'hdfelix-blocitoff.herokuapp.com' }
-	config.action_mailer.delivery_method = :smtp
-	config.action_mailer.perform_deliveries = true
+	#config.action_mailer.delivery_method = :smtp
+	#config.action_mailer.perform_deliveries = true
 end
