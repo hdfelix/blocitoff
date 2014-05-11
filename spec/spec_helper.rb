@@ -16,6 +16,13 @@ ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
 	config.include FactoryGirl::Syntax::Methods
+	config.include FeatureLoginMacros
+
+	config.include Devise::TestHelpers, type: :controller
+	config.extend ControllerMacros, type: :controller
+
+	
+
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
@@ -43,9 +50,6 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
-
-	#Include Macros
-	config.include(LoginMacros)
 
 	#Set config.use_transactional_fixtures to false
 	config.use_transactional_fixtures = false

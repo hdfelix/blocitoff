@@ -1,60 +1,58 @@
 require 'spec_helper'
 
 feature 'User can manage Todo items' do
-	@todo = Todo.create(description: 'Test my app')
-	user = FactoryGirl.create(:user)
-	log_in user
+	let(:authed_user) { 	
+		create_logged_in_user 
+	}
 
 	scenario 'by accessing the Todo index' do
-		visit todos_path
+		visit todos_path(authed_user)
 		expect(page).to have_content("My List")
 	end
 
 	scenario 'Can see the Todo list headers' do
-		visit todos_path
-		expect(page).to have_content('Create new todo')
+		visit todos_path(authed_user)
 		expect(page).to have_content('Description')
 		expect(page).to have_content('Days left')
 		expect(page).to have_content('Complete')
 	end
-	
-	scenario 'Can view a single Todo item' do	
-		visit 'todos#index'
-		expect(page).to have_content('Test my app')
-	end
-
-	scenario 'Can view days left on a todo item' do
-	 expect(page).to have_content('days')	
-	end
 end
 
 feature 'User creates Todo item' do
+	let(:authed_user) { 	
+		@todo = Todo.create(description: 'Test my app')
+		create_logged_in_user 
+	}
 
 	scenario 'Successfully' do
-		click_link 'todos'
-		save_and_open_page
+		visit todos_path(authed_user)
 		expect{
 			fill_in 'todo_description', with: 'Meet up with the team'
 			click_button 'Save'
 		}.to change(Todo, :count).by (1)
-
 		expect(page).to have_content('Meet up with the team')
+		expect(page).to have_content('days')	
 	end
+
 	scenario 'sees \'SUCCESS\' message when saved' do
-		visit new_todo_path
+		visit todos_path(authed_user)
 		fill_in 'Description', with: 'Meet up with the team'
 		click_button 'Save'
 		expect(page).to have_content('Your new TODO was saved.')
 	end
 
 	scenario 'invalid with \'Description\' missing' do
-		visit new_todo_path
+		visit todos_path(authed_user)
 		expect{click_button 'Save'}.to change(Todo, :count).by (0)
 		expect(page).to have_content("can't be blank")
 	end
 end
 
 #feature 'User edits a Todo item' do
+	#let(:authed_user) { 	
+	#	@todo = Todo.create(description: 'Test my app')
+	#	create_logged_in_user 
+#	}
 #	todo = Todo.create(description: 'Test my app')
 #	
 #	scenario 'Successfully' do

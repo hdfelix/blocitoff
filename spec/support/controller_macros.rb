@@ -1,8 +1,4 @@
-module LoginMacros
-
-	def set_user_session(user)
-		session[:user_id] = user.id
-	end
+module ControllerMacros
 
 	def sign_in(user)
 		visit root_path
@@ -12,8 +8,12 @@ module LoginMacros
 		click_button 'Sign in'
 	end
 
-	def log_in(user)
-		post login_path, login: user.email, password: 'secret_password'
+	def login_user
+			@request.env["devise.mapping"] = Devise.mappings[:user]
+			user = FactoryGirl.create(:user)
+			user.confirm!
+			sign_in user
+			user
 	end
 end
 
