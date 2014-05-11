@@ -31,19 +31,23 @@ gem 'figaro'
 group :development, :test do
 	# generate fake test data
 	gem 'faker', '~>1.3.0'
-
-	#BDD
-	gem 'capybara', '~> 2.2.1'
-	
-	#clean test data from test db before each test
-	gem 'database_cleaner', '~> 1.2.0'
-
-	#open your default browser on demand to see what the app is rendering
-	gem 'launchy', '~> 2.4.2'
-
-	#test JS-based browser interactions with Capybara
-	gem 'selenium-webdriver', '~>2.35.1'
+	gem 'pry'
+	gem 'pry-remote'
+	gem 'pry-nav'
 end
+
+#BDD
+gem 'capybara', '~> 2.2.1'
+
+#clean test data from test db before each test
+gem 'database_cleaner', '~> 1.2.0'
+
+#open your default browser on demand to see what the app is rendering
+gem 'launchy', '~> 2.4.2'
+
+#test JS-based browser interactions with Capybara
+gem 'selenium-webdriver', '~>2.35.1'
+	
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
