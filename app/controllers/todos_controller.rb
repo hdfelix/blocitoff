@@ -18,24 +18,21 @@ respond_to :html, :js
 	end
 
 	def create
-		#@todo = Todo.new(todo_params)
 		@todo = current_user.todos.build(todo_params)
 		authorize @todo
-
 		if @todo.save
 			flash[:notice] = "Your new TODO was saved."
 			redirect_to todos_path
 		else
 			flash[:error] = "Could not save the TODO."
-			render :new
+			render :index
 		end
 	end
 
 	def destroy
-		@todo = Todo.find(params[:id])
+		@todo = Todo.find params[:id]
 		authorize @todo
 		desc = @todo.description
-
 		if @todo.destroy
 			flash[:notice] = "The todo #{desc} was deleted successfully."
 		else
