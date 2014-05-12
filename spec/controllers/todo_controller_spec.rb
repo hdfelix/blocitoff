@@ -12,6 +12,7 @@ describe TodosController do
 		end
 	end
 
+	#To review with Rose on 5/11/14
 	describe 'POST #create' do
 		before :each do
 			@user = login_user
@@ -21,7 +22,7 @@ describe TodosController do
 		end 
 		context 'with valid attributes' do
 			it "saves the new todo item in the database" do
-				binding.pry
+				#binding.pry
 				expect{ 
 					post :create, id: @todo
 				}.to change(Todo, :count).by(1)
@@ -33,26 +34,28 @@ describe TodosController do
 			end
 		end
 
-		context 'with invalid attributes' do
-			it "does not save the new contact in the database"
-			it "displays an error message"
-		end
+		#context 'with invalid attributes' do
+		#	it "does not save the new contact in the database" do
+		#		expect{
+		#			post :create,
+		#				todo: attributes_for(:invalid_todo)
+		#		}.to_not change(Todo, :count)
+		#	end
+		#	it "displays an error message"
+		#end
 	end
 
-	#describe 'DELETE #destroy' do
-	#	ControllerMacros::login_user
+	describe 'DELETE #destroy' do
 
-	#	it 'deletes the todo item from the database' do
-	#		@todo = create(:todo, user_id: subject.current_user.id)
-	#		expect{
-	#			delete :destroy, id: @todo
-	#		}.to change(Todo, :count).by(-1)
-	#	end
+		it 'deletes the todo item from the database' do
+			expect{
+				delete :destroy, id: @todo
+			}.to change(Todo, :count).by(-1)
+		end
 
-	#	it 'redirects to todos#index' do
-	#		@todo = create(:todo, user_id: subject.current_user.id)
-	#		delete :destroy, id: @todo
-	#		expect(response).to redirect_to todos_url
-	#	end
-	#end
+		it 'redirects to todos#index' do
+			delete :destroy, id: @todo
+			expect(response).to render_template :index
+		end
+	end
 end
