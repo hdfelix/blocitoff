@@ -4,7 +4,7 @@ FactoryGirl.define do
 		description { Faker::Lorem.sentence(3, true, 1)}
 	end
 
-	factory :invalid_todo do
+	factory :invalid_todo, class: Todo do
 		description nil
 	end
 end

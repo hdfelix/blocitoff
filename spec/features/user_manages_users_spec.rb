@@ -21,14 +21,3 @@ feature 'User accesses site' do
 		expect(page).to have_content('Signed in successfully.')
 	end
 end
-
-	feature 'And creates a new user' do
-		scenario 'Successfully'
-
-		feature 'With errors - ' do
-			scenario 'missing name'
-			scenario 'missing email address'
-			scenario 'missing a password'
-			scenario 'missing password confirmation'
-		end
-	end

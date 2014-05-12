@@ -20,8 +20,8 @@ end
 
 feature 'User creates Todo item' do
 	let(:authed_user) { 	
+		@user = create_logged_in_user 
 		@todo = Todo.create(description: 'Test my app')
-		create_logged_in_user 
 	}
 
 	scenario 'Successfully' do
@@ -47,33 +47,3 @@ feature 'User creates Todo item' do
 		expect(page).to have_content("can't be blank")
 	end
 end
-
-#feature 'User edits a Todo item' do
-	#let(:authed_user) { 	
-	#	@todo = Todo.create(description: 'Test my app')
-	#	create_logged_in_user 
-#	}
-#	todo = Todo.create(description: 'Test my app')
-#	
-#	scenario 'Successfully' do
-#		visit todos_path
-#		first(:link, 'Edit').click
-#		#expect(current_path).to eq todo
-#	end
-#
-#	scenario 'invalid with \'Description\' missing' do
-#	end
-#end
-#
-#feature 'User deletes a Todo item' do
-#end
-
-#feature 'User deletes a Todo item' do
-#	scenario 'Successfully' do
-#		expect{
-#			visit todos_path
-#			#select Delete button on particular todo
-#		}.to_change(Todo, :count).by(-1)
-#		
-#	end
-#end
