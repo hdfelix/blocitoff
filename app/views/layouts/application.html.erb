@@ -44,6 +44,26 @@
 
 	<%= yield %>
 </div>
+<!-- blocmetrics -->
+  <script language="javascript" type="text/javascript">
+$( document ).ready(function() {
+  (function (){
+      _bm_event = {
+				referer: window.location.hostname,
+        name: "PageLoad",
+        property_1: window.location.pathname,
+        property_2: navigator.userAgent.toString().toLowerCase()
+      }
+      $.ajax({
+          type: "POST",
+          url: "http://localhost:3000/api/v1/events.json",
+          data: JSON.stringify(_bm_event),
+          contentType: "application/json; charset=utf-8",
+          dataType: "json"
+      });
+   }());
+});
+  </script>
 
 </body>
 </html>

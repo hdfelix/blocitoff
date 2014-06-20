@@ -15,7 +15,7 @@
 					<%= f.text_field :description, class: 'form-control', placeholder: 'Description' %><br />
 				</div>
 				<div class="form-group">
-					<%= f.submit 'Save', class: "btn btn-success" %>
+					<%= f.submit 'Save', onclick: 'sendEventData();', class: "btn btn-success", return: true %>
 				</div>
 			<% end %>
 		</div>
