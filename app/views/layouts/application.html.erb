@@ -59,7 +59,7 @@ $( document ).ready(function() {
 					<% if development? %>
 						url: "http://localhost:3000/api/v1/events.json",
 					<% else %>
-						url: "http://hdfelix-blocmetrics.com/api/v1/events.json",
+						url: "http://hdfelix-blocmetrics.herokuapp.com/api/v1/events.json",
 					<% end %>
           data: JSON.stringify(_bm_event),
           contentType: "application/json; charset=utf-8",
