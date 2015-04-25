@@ -40,7 +40,7 @@ respond_to :html, :js
 		end
 
 		respond_with(@todo) do |f|
-			f.html { redirect_to todos_path }
+			f.html { redirect_to event_hospitality_assignments}
 		end
 	end
 
